@@ -1,5 +1,13 @@
+/*
+    Author: Allyanna Cruz
+    Program Description: A program which takes in a JSON object as input and out puts a flattened version of the input.
+*/
+
+//package allyannacruz.assessment.src;
+
 import org.json.JSONObject;
 import java.util.Scanner;
+import java.util.*;
 
 public class JSONProj {
     public static void main(String[] args) {
@@ -17,9 +25,40 @@ public class JSONProj {
         /*c.put("c",c);*/
         //System.out.println(jsonObject);
         /*System.out.println(c);*/
+        System.out.println("Key 1:" );
         String key1 = jo.nextLine();
+        System.out.println("Value 1:" );
         String value1 = jo.nextLine();
         jsonObject.put(key1,value1);
+        System.out.println("Key 2: ");
+        String key2 = jo.nextLine();
+        System.out.println("Value 2: ");
+        String value2 = jo.nextLine();
+        jsonObject.put(key2,value2);
+        System.out.println("Key 3: ");
+        String key3 = jo.nextLine();
+        System.out.println("Value 3: ");
+        String value3 = jo.nextLine();
+        //jsonObject.put(key3,value3);
+        if(value3 == "none") {
+            System.out.println("Enter key and value"); 
+            
+        } // end if
+        
+        System.out.println("Key 4: ");
+        String key4 = jo.nextLine();
+        System.out.println("Value 4: ");
+        String value4 = jo.nextLine();
+        jsonObject.put(key3 + "." + key4,value4);
+        // if(key3 == "d") jsonObject.put(key3 + "." + value3)
+        System.out.println("Key 5: ");
+        String key5 = jo.nextLine();
+        System.out.println("Value 5: ");
+        String value5 = jo.nextLine();
+        jsonObject.put(key3 + "." + key5,value5);
+
+        //(key(i) || value(i) == "STOP")
+        //break; - stops the loop.
 
         // String letterD = jsonObject.getJSONObject("c").get("d").toString();
         // String letterE = jsonObject.getJSONObject("c").get("e").toString();
@@ -39,6 +78,9 @@ public class JSONProj {
         // jsonObject.put("c" + "." + "d", 3);
         // jsonObject.put("c" + "." + "e", "test");
         // System.out.println(jsonObject);
+
+        //object c
+ 
 
         
     }
