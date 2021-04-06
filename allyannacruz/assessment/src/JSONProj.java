@@ -3,14 +3,23 @@
     Program Description: A program which takes in a JSON object as input and out puts a flattened version of the input.
 */
 
-//package allyannacruz.assessment.src;
+package allyannacruz.assessment.src;
 
 import org.json.JSONObject;
+
+import org.apache.commons.io.IOUtils;
+
 import java.util.Scanner;
 import java.util.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class JSONProj {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         Scanner jo = new Scanner(System.in);
         JSONObject jsonObject = new JSONObject();
 
@@ -64,6 +73,7 @@ public class JSONProj {
         // String letterE = jsonObject.getJSONObject("c").get("e").toString();
         // String letterC = jsonObject.getJSONObject("c").toString();
         System.out.println(jsonObject);
+        jo.close();
         
         // System.out.println(jsonObject);
         // System.out.println(letterD);
@@ -80,8 +90,28 @@ public class JSONProj {
         // System.out.println(jsonObject);
 
         //object c
- 
-
+        JSONProj jp = new JSONProj();
+        JSONProj.JSONParse();
         
-    }
-}
+    } // end main()
+
+    public static void JSONParse() throws Exception {
+        File testj = new File("test1.txt");
+
+       
+        System.out.println("File exists");
+        //InputStream tj = new FileInputStream(testj);
+        InputStream is = JSONProj.class.getResourceAsStream("test1.txt");
+        String testTxt  = IOUtils.toString(is, "UTF-8");
+        //String testJSON = IOUtils.toString(tj, "UTF-8");
+        //System.out.println(testJSON);
+        System.out.println(testTxt);
+
+            //JSONObject jsonF = new JSONObject(testJSON);
+
+            // String letterD = jsonF.getJSONObject("c").get("d").toString();
+            // String letterE = jsonF.getJSONObject("c").get("e").toString();
+            // String letterC = jsonF.getJSONObject("c").toString();
+
+    } // end JSONParse()
+} // end JSONProj class
