@@ -10,6 +10,7 @@ java JSONProj
 The libraries used are the org.json and org.apache.commons.io .
 The .jar files are in the lib folder.
 Please change the path on JSONInput() and JSONParse() so that a .json file can be saved in your system.
+The test1.txt and test1.json are in allyannacruz/assessment/src folder.
 
 When the program is ran, the user is prompted for an input 1 or 2.
 I included two ways to input and output the test1.txt or test1.json file because I wasn't sure which approach would be best.
