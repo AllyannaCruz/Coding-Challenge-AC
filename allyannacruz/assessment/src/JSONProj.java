@@ -14,12 +14,54 @@ import java.util.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class JSONProj {
     public static void main(String[] args) throws Exception{
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("\n\nPress 1 to input JSON object \n or \nPress 2 to parse test1.txt");
+        char inOrp = sc.next().charAt(0);
+
+        // if(inOrp == '1') {
+        //     JSONProj.JSONInput(); // Method which takes in user input to output a flattened JSON object
+        // }
+        // else if(inOrp == '2') {
+        //     JSONProj.JSONParse(); // Method which parses a .txt file in a JSON format and outputs the flattened JSON object
+        // }
+        // else {
+        //     System.out.println("Please input only either 1 or 2\n");
+        //     inOrp = sc.next().charAt(0);
+
+        //     if(inOrp == '1') {
+        //         JSONProj.JSONInput(); // Method which takes in user input to output a flattened JSON object
+        //     }
+            
+        //     if(inOrp == '2') {
+        //         JSONProj.JSONParse(); // Method which parses a .txt file in a JSON format and outputs the flattened JSON object
+        //     }
+        // } // end if else
+
+        switch(inOrp) {
+            case '1':
+                JSONProj.JSONInput(); // Method which takes in user input to output a flattened JSON object
+                break;
+            case '2':
+                JSONProj.JSONParse(); // Method which parses a .txt file in a JSON format and outputs the flattened JSON object
+                break;
+            default:
+                System.out.println("Please enter 1 or 2. Run program again");
+        } // end switch
+        
+        
+        sc.close();
+    } // end main()
+
+    public static void JSONInput() throws Exception {
         Scanner jo = new Scanner(System.in);
         JSONObject jsonObject = new JSONObject();
 
@@ -91,32 +133,38 @@ public class JSONProj {
 
         //object c
         //JSONProj jp = new JSONProj();
-        JSONProj.JSONParse();
-        
-    } // end main()
+    } // end JSONInput()
+
 
     public static void JSONParse() throws Exception {
-        File testj = new File("test1.txt");
-
-       
-        System.out.println("File exists");
-        //InputStream tj = new FileInputStream(testj);
         InputStream is = JSONProj.class.getResourceAsStream("test1.txt");
         String testTxt  = IOUtils.toString(is, "UTF-8");
-        //String testJSON = IOUtils.toString(tj, "UTF-8");
-        //System.out.println(testJSON);
-        System.out.println(testTxt + "\n");
+        System.out.println("\n" + testTxt + "\n");
         System.out.println("Flattened version: \n");
 
         JSONObject jsonF = new JSONObject(testTxt);
 
-            // String letterD = jsonF.getJSONObject("c").get("d").toString();
-            // String letterE = jsonF.getJSONObject("c").get("e").toString();
-            // String letterC = jsonF.getJSONObject("c").toString();
+        String letterD = jsonF.getJSONObject("c").get("d").toString();
+        String letterE = jsonF.getJSONObject("c").get("e").toString();
+        String letterC = jsonF.getJSONObject("c").toString();
         jsonF.remove("c");
-        jsonF.put("c" + "." + "d", 3);
-        jsonF.put("c" + "." + "e", "test");
+        jsonF.put("c" + "." + "d", letterD);
+        jsonF.put("c" + "." + "e", letterE);
         System.out.println(jsonF);
+        String jsonFStr = jsonF.toString();
+
+        //PrintWriter pw = null;
+
+        try {
+            //pw = new PrintWriter(new FileWriter("/output.json"));
+            FileWriter fw = new FileWriter("C:/Users/acruz/OneDrive - Technological University Dublin/Documents/School/Year 3/Year 3 Semester 2/MongoDB Coding Challenge/allyannacruz/assessment/src/output.json");
+            fw.write(jsonFStr);
+            fw.close();
+        } catch (Exception e) {
+            //TODO: handle exception
+            System.out.println("Cannot write file" + e.toString());
+        } 
+        
 
     } // end JSONParse()
 } // end JSONProj class
