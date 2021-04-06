@@ -3,7 +3,11 @@ Author: Allyanna Cruz
 
 Program that inputs a JSON object and outputs a flattened version.
 
-The libraries used are the org.json and org.apache.commons.
+To compile and run:
+javac JSONProj.java
+java JSONProj
+
+The libraries used are the org.json and org.apache.commons.io .
 The .jar files are in the lib folder.
 Please change the path on JSONInput() and JSONParse() so that a .json file can be saved in your system.
 
