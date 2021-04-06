@@ -90,7 +90,7 @@ public class JSONProj {
         // System.out.println(jsonObject);
 
         //object c
-        JSONProj jp = new JSONProj();
+        //JSONProj jp = new JSONProj();
         JSONProj.JSONParse();
         
     } // end main()
@@ -105,13 +105,18 @@ public class JSONProj {
         String testTxt  = IOUtils.toString(is, "UTF-8");
         //String testJSON = IOUtils.toString(tj, "UTF-8");
         //System.out.println(testJSON);
-        System.out.println(testTxt);
+        System.out.println(testTxt + "\n");
+        System.out.println("Flattened version: \n");
 
-            //JSONObject jsonF = new JSONObject(testJSON);
+        JSONObject jsonF = new JSONObject(testTxt);
 
             // String letterD = jsonF.getJSONObject("c").get("d").toString();
             // String letterE = jsonF.getJSONObject("c").get("e").toString();
             // String letterC = jsonF.getJSONObject("c").toString();
+        jsonF.remove("c");
+        jsonF.put("c" + "." + "d", 3);
+        jsonF.put("c" + "." + "e", "test");
+        System.out.println(jsonF);
 
     } // end JSONParse()
 } // end JSONProj class
