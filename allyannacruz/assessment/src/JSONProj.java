@@ -20,7 +20,7 @@ public class JSONProj {
     public static void main(String[] args) throws Exception{
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("\n\nPress 1 to input JSON object \n or \nPress 2 to parse test1.txt");
+        System.out.println("\n\nPress 1 to input JSON object \n or \nPress 2 to parse test1.txt\n");
         char inOrp = sc.next().charAt(0);
 
         // Switch statement to allow user to choose which method to use
@@ -45,15 +45,12 @@ public class JSONProj {
         Scanner jo = new Scanner(System.in);
         JSONObject jsonObject = new JSONObject();
 
-        System.out.println("Please enter keys and values");
-        //jsonObject.put("a", 1);
-        //jsonObject.put("b",Boolean.valueOf(true));
+        System.out.println("Please enter keys and values\n");
 
         System.out.println("Key 1:" );
         String key1 = jo.nextLine();
         System.out.println("Value 1:" );
         String value1 = jo.nextLine();
-        //int value1 = jo.nextInt();
         jsonObject.put(key1,value1);
         System.out.println("Key 2: ");
         String key2 = jo.nextLine();
