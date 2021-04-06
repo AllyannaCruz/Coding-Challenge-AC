@@ -4,7 +4,6 @@
     The libraries used are specified in the README file. The user is prompted to choose between method 1 or 2.
     I added two methods because method 2, JSONParse, parses the file specified into a JSON object, whereas method 1, 
     JSONInput allows the user to input the key value pairs in, based on the test1.json file
-
 */
 
 package allyannacruz.assessment.src;
@@ -41,7 +40,7 @@ public class JSONProj {
     } // end main()
 
     // This method takes in user input, based on the test1.txt or test1.json file.
-    // The ths json object is then printed and saved into whatever directory is specified in the path.
+    // The json object is then printed and saved into whatever directory is specified in the path.
     public static void JSONInput() throws Exception {
         Scanner jo = new Scanner(System.in);
         JSONObject jsonObject = new JSONObject();
